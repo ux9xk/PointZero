@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D 射擊訓練器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 頂部數據狀態欄 -->
+  <div class="hud">
+    <div class="hud-item">得分: <span id="score">0</span></div>
+    <div class="hud-item">時間: <span id="timer">30</span>s</div>
+    <div class="hud-item">命中率: <span id="accuracy">100</span>%</div>
+  </div>
+
+  <!-- 遊戲區域 -->
+  <div class="game-container">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- 開始/結束 彈窗面板 -->
+    <div id="startOverlay" class="overlay">
+      <h1>2D AIM TRAINER</h1>
+      <button id="startBtn">開始測試</button>
+    </div>
+
+    <div id="endOverlay" class="overlay hidden">
+      <h1>訓練完成</h1>
+      <p>最終得分：<span id="finalScore">0</span></p>
+      <p>命中率：<span id="finalAccuracy">0%</span></p>
+      <button id="restartBtn">再試一次</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
