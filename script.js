@@ -20,7 +20,7 @@ class Target {
     ctx.fillStyle = this.color;
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = '#ffffff';
+    ctx.strokeStyle = '#C0C0C0';
     ctx.stroke();
     ctx.closePath();
   }
@@ -36,7 +36,7 @@ function spawnTarget() {
   const radius = 25;
   const x = Math.random() * (canvas.width - radius * 4) + radius * 2;
   const y = Math.random() * (canvas.height - radius * 4) + radius * 2;
-  targets.push(new Target(x, y, radius, '#ff4757'));
+  targets.push(new Target(x, y, radius, '#ff4655'));
 }
 
 // 畫面渲染迴圈 (每秒約 60 畫格)
