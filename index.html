@@ -24,10 +24,14 @@
       <button id="startBtn">開始測試</button>
     </div>
 
-    <div id="endOverlay" class="overlay hidden">
+<div id="endOverlay" class="overlay hidden">
       <h1>訓練完成</h1>
       <p>最終得分：<span id="finalScore">0</span></p>
       <p>命中率：<span id="finalAccuracy">0%</span></p>
+      
+      <!-- 新增：分數分級與推薦連結顯示區 -->
+      <div id="rankFeedback" class="rank-feedback"></div>
+      
       <button id="restartBtn">再試一次</button>
     </div>
   </div>

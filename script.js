@@ -140,13 +140,37 @@ function endGame() {
   isPlaying = false;
   clearInterval(timerInterval);
 
-  // 顯示結算畫面
+  // 顯示基本數據
   document.getElementById('finalScore').textContent = score;
   const accuracy = totalShots === 0 ? 0 : Math.round((hits / totalShots) * 100);
   document.getElementById('finalAccuracy').textContent = accuracy + '%';
+
+  // 判斷分數分級與對應建議
+  const feedbackEl = document.getElementById('rankFeedback');
+  
+  if (score > 6000) {
+    feedbackEl.innerHTML = `<span style="color:#00F0FF; font-weight:bold;">你是瞄準大王，不需要瞄準建議</span>`;
+  } else if (score >= 5500) {
+    feedbackEl.innerHTML = `<span style="color:#00F0FF; font-weight:bold;">很厲害了</span>`;
+  } else if (score >= 4500) {
+    feedbackEl.innerHTML = `
+      <div>多加練習，可以試試這個</div>
+      <a href="https://go.aimlab.gg/v1/redirects?link=aimlab%3A%2F%2Fworkshop%3Fid%3D3001826128%26source%3D54C85A93B7EFB360&link=steam%3A%2F%2Frungameid%2F714010" target="_blank" class="rank-link">開啟 Aim Lab 推薦訓練</a>
+    `;
+  } else if (score >= 4000) {
+    feedbackEl.innerHTML = `
+      <div>練習這個吧</div>
+      <a href="https://go.aimlab.gg/v1/redirects?link=aimlab%3a%2f%2fworkshop%3fid%3d3277341588%26source%3d1DAD0A6C9DA83992&link=steam%3a%2f%2frungameid%2F714010" target="_blank" class="rank-link">開啟 Aim Lab 進階練習</a>
+    `;
+  } else {
+    feedbackEl.innerHTML = `
+      <div>叫你去玩</div>
+      <a href="https://metromaster.huangyouci.com/" target="_blank" class="rank-link">前往 MetroMaster</a>
+    `;
+  }
+
   endOverlay.classList.remove('hidden');
-}
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 // 命中高音效
 function playHitAudio() {
